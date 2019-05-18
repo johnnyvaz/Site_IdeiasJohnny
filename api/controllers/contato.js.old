@@ -1,0 +1,41 @@
+const nodemailer = require('nodemailer');
+
+module.exports = {
+    sendMail
+};
+
+// function contato() {
+//     alert('mensagem enviada');
+//   }
+
+// function enviarEmail(req, res){
+
+      const transporter = nodemailer.createTransport({
+          host: "server2.ipstm.net",
+          port: 465,
+          secure: true, // true for 465, false for other ports
+          auth: {
+              user: "johnnyvaz@johnnyvaz.com.br",
+              pass: "do2pen7i0@#A"
+            },
+            tls: { rejectUnauthorized: true }
+        });
+
+
+        const mailOptions = {
+            from: 'no-reply@johnnyvaz.com.br',
+            to: 'johnnyjohnnyjohnnyvaz@gmail.com',
+            subject: 'E-mail enviado usando Node!',
+            text: 'Teste de envio realizado com sucesso'
+          };
+function sendMail(req, res){
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email enviado: ' + info.response);
+        }
+    });
+}
+    

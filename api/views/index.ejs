@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt_br"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Johnny Vaz - Ideias Criativas</title>
+  <meta name="keywords" content="ideias criatividade">
+  <meta name="description" content="site pessoal com objetivo de mostrar as minhas ideias">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <meta property="og:title" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="Johnny Vaz Ideias Criativas">
+  <meta property="og:description" content="">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <script src="js/modernizr-2.7.1.js"></script>
+  <script src="js/app.js"></script>
+  
+</head>
+
+<body>
+  
+  
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        </button>
+        <a class="logo scroll" href="#home"><img src="images/johnnyvaz.png" alt="Logo"></a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#contato" class="scroll">Contato</a></li>
+          <li><a href="#listarideias" class="scroll">Ideias</a></li>
+          <li><a href="#inovacao" class="scroll">Inovação</a></li>
+          <!-- <li><button id="btn1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ex1">
+            Cadastrar Ideia
+          </button></li> -->
+          <!-- <button type="button" class="scroll" data-toggle="modal" data-target="cadastrarideias">Cadastrar Ideias</button> -->
+          <li><a href="/novo" class="btn">Nova Ideia</a></li>
+          <li><a href="#sobremim" class="scroll">About me</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <a id="home" class="scroll" href="#home"><img src="images/johnnyvaz.png" alt="Logo"></a>
+        </div>
+        <div class="col-xs-6 signin text-right navbar-nav">
+          <a href="#contato" class="scroll">Contato</a>&nbsp; &nbsp;
+          <a href="#listarideias" class="scroll">Ideias</a>&nbsp; &nbsp;
+          <a href="#inovacao" class="scroll">Inovação</a>&nbsp; &nbsp;
+          <!-- <button id="btn1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ex1">
+            Cadastrar Ideia
+          </button> -->
+          <!-- <button type="button" class="btn btn-primary scroll" data-toggle="modal" data-target="#cadastrarideias">Cadastrar Ideias</button>&nbsp; &nbsp; -->
+          <a href="/novo" class="btn">Nova Ideia</a>&nbsp; &nbsp;
+          <a href="#sobremim" class="scroll">About me</a>&nbsp; &nbsp;
+          
+        </div>
+      </div>
+      
+      <div class="row header-info">
+        <div class="col-sm-10 col-sm-offset-1 text-center">
+          <h1 class="wow fadeIn">Johnny Vaz <br>Ideias Criativas</h1>
+          <br />
+          <h2 style="color:antiquewhite" class="wow fadeIn" data-wow-delay="0.5s">Uma ideia pode transformar o mundo ...<br>
+            ...somente se ela for colocada em prática</h2>
+            <br />
+            
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="row">
+                  <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
+                    <a href="#listarideias" class="btn btn-secondary btn-lg scroll">Conheças minhas ideias</a>
+                  </div>
+                  <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
+                    <a href="#contato" class="btn btn-primary btn-lg scroll">Entre em contato</a>
+                  </div>
+                </div> 
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <div class="mouse-icon hidden-xs">
+      <div id="listarideias" class="scroll"></div>
+    </div>
+    <div class="sticky"> 
+      <a href="#" class="scroll botao destaque">Login</a>
+    </div>
+    
+    <section class="pad-xl">
+      
+      <h1 class="titulo wow fadeIn" data-wow-delay="0.2s">Lista de Ideias - [ <%= ideias.length %> ]</h1> 
+    </h1>
+    <div class="conteiner">
+      <div class="blocoideias wow fadeIn" data-wow-delay="0.2s">
+        <% if(ideias.length>0){for(i=0; i<ideias.length; i++) { %>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ideia<%= ideias[i].id %>">
+            <%= ideias[i].nome %>
+          </button>
+          <% } } %>
+        </div>
+      </div>
+      
+      <% if(ideias.length>0){for(i=0; i<ideias.length; i++) { %>
+        <div class="modal fade" id="ideia<%= ideias[i].id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content margem-modal">
+              <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel"><%= ideias[i].nome %></h2><br>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid modalideia">
+                  <div>
+                    <div class="col-md-1 form-control parent" size="5"><%= ideias[i].id %> </div>
+                  </div>
+                  <div class="col-">
+                    <label for="resumo">Resumo</label>
+                    <div class="col- form-control parent" id="resumo"><%= ideias[i].resumo %></div>
+                  </div>
+                  <!-- <br>
+                  <textarea class="form-control parent" id="descricao" name="descricao" rows="5" cols="100%">
+                  <%= ideias[i].descricao %>
+                </textarea> -->
+                <br>                
+                <div class="">
+                  <label for="descricao">Descrição</label>
+                  <div class="col-md-8 form-control parent" id="descricao"><%= ideias[i].descricao %></div>
+                </div>
+                <div>
+                  <label for="recursos">Recursos</label>
+                  <div class="col-md-5 form-control parent"><%= ideias[i].idRecursos %></div>
+                </div>
+                <div>
+                  <label for="tipo">Tipo</label>                    
+                  <div class="col-md-3 form-control parent"><%= ideias[i].tipo %></div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-warning" data-dismiss="modal" data-toggle="modal" data-target="#edt_ideia<%= ideias[i].id %>">Editar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <% } } %>
+    
+    
+    <!-- modal editar ideia  -->
+    <% if(ideias.length>0){for(i=0; i<ideias.length; i++) { %>
+
+      <div class="modal fade" id="edt_ideia<%= ideias[i].id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content margem-modal">
+            <form action="/ideias/salvar" method="post">
+              <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel"><%= ideias[i].nome %></h2><br>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid modalideia">
+                  <div class="form-group">
+                    <div class="col-md-1 form-control parent">
+                      <label>Id: </label>
+                      <input type="text" value="<%= ideias[i].id%>" name="id"  size="5" >
+                    </div>
+                    <div class="col- form-control parent">
+                      <label>Nome: </label>
+                      <input type="text" value="<%= ideias[i].nome%>" name="nome"  required size="50" >
+                    </div>
+                    <div class="col- form-control parent">
+                      <label>Resumo: </label>
+                      <input type="text" value="<%= ideias[i].resumo%>" name="resumo"  required size="60" maxlength="200">
+                    </div>
+
+                    <div class="form-control parent">
+                      <label>Descrição: </label>
+                      <input type="text" value="<%= ideias[i].descricao%>" name="descricao">
+                    </div>
+                    <div class="col-md-4 form-control parent">
+                      <label>Recursos: </label>
+                      <input type="text" value="<%= ideias[i].idRecursos%>" name="idRecursos" size="50">
+                    </div>
+                    <div class="col-4 form-control parent">
+                      <label>Tipo: </label>
+                      <input type="text" value="<%= ideias[i].tipo%>" name="tipo" placeholder="" size="50">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-success" data-dismiss="modal">Salvar</button>  
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <% } } %>           
+  </section>
+  <!-- nova ideia -->
+  
+  <!-- Button trigger modal -->
+  
+  <!-- <button id="btn1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ex1">
+    Abrir modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="ex1" tabindex="-1" role="dialog" aria-labelledby="ex1" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Nova Ideia</h2>
+          <button id="close1" type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <iframe src="/novo" width="800" height="400" frameborder='1'  scrolling="yes"></iframe> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-success">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <section id="inovacao" class="pad-xl">
+    <div class="container">
+      <h1 class="titulo wow fadeIn" data-wow-delay="0.2s">inovação</h1>
+      <div class="row">
+        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
+          <hr class="line purple">
+          <h3>Software</h3>
+          <p>Podemos tanto criar um sistema específico seja ele aplicativo mobile ou um site para a ideia ou personalizar um software existente para adequar a necessidade, tudo vai depender do resultado final.</p>
+        </div>
+        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
+          <hr  class="line blue">
+          <h3>Processo</h3>
+          <p>Muitas vezes uma inovação não depende de nenhuma tecnologia para ser realizada, talvez só mudar o processo que é feito as coisas já conseguimos atingir uma mudança em nossas vidas.</p>
+        </div>
+        <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
+          <hr  class="line yellow">
+          <h3>Eletrônica</h3>
+          <p>Com o uso da eletrônica aliada a informática podemos construir ideias fantásticas, conseguimos automatizar quase tudo, e há muita tecnologia disponível e que não estamos usando porque falta as ideias para colocá-las no nosso dia a dia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="sobremim" class="pad-xs">
+    <div class="container">
+      <h1 class="titulo wow fadeIn" data-wow-delay="0.2s">about me</h1>
+      <div class="row">
+        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
+          <hr class="line purple">
+          <img src="images/familia-johnny.png" class="img-responsive wow fadeIn" alt="Image" data-wow-delay="0.4s">
+        </div>
+        <div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
+          <hr  class="line blue">
+          <h3>Falando sobre mim</h3>
+          <p>Graduado em Administração de Empresas pela Estácio, formando em Análise e Desenvolvimento de Sistemas na FATEC,
+            já atuou no desenvolvimento, análise e  implantação de sistemas ERP, CRM, Ecommerce, Sites e Telefonia IP.
+            Entusiasta de sistemas OpenSouce e Startups.
+            
+            <!-- Sou o pai na Nívea(de branco) e da Sophia(de rosa) e marido da Mônica<br>
+              Gosto de mais de ficar tendo ideias e o meu alvo é conseguir de alguma forma mudar o mundo melhorando a vida das pessoas.<br>
+              Sou formado em Administração de Empresas e estudo na FATEC Franca Análise e Desenvolvimento de Sistemas.<br>
+              Meu currículo está disponível no link: <a href="http://lattes.cnpq.br/1164579771148296" target="_blank">
+                <span >http://lattes.cnpq.br/1164579771148296</span></a> -->
+              </p>
+            </div>
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
+              <hr  class="line yellow">
+              <h3>Conhecimentos - Tags</h3>
+              <p>JavaScript, ShellScript, Asterisk, SQL, PHP, Visual Basic, Prompt Comando Windows, Python,
+                Microsoft Office Avançado(Word, Excel, PowerPoint), PowerBI, Linux Avançado, Softwares ERP e CRM( Gestão Empresarial e Gestão de Relacionamento com
+                Clientes) – TOTVS, ANDES, Dolibar, VtigerCRM, Photoshop, Gimp, Virtualização (AWS,Azure,Cloud Google), Docker, Criação de Vídeo Aulas, Documentação técnica, Wiki, Helps Diversos,
+                Git, GitHub, SVN, Tortoise, VSCode, Gulp, Integração Contínua, Deploy.
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      
+      
+      <section  id="contato" class="pad-sm">
+        <div class="container container-fluid">
+          <h1 class="titulo wow fadeIn" data-wow-delay="0.2s">Fale comigo</h1>
+          <div >
+            
+            <div class="wow fadeIn" data-wow-delay="1.2s">
+              <hr  class="line blue">
+              <form action="contato" method="POST" role="form">
+                <legend style="text-align:center">Envie sua mensagem</legend>
+                
+                <div class="form-group">
+                  <label for="">Nome</label>
+                  <input type="text" class="form-control" id="nome" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="">E-mail</label>
+                  <input type="text" class="form-control" id="email" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="">Mensagem</label>
+                  <textarea rows="4" cols="" class="form-control" id="nome" placeholder="">
+                  </textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </form>
+              
+            </section>
+            
+            
+            <footer>
+              <div class="container">
+                
+                <div class="row">
+                  <div class="col-sm-8 margin-20">
+                    <ul class="list-inline social">
+                      <li>Conecte comigo</li>
+                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                  </div>
+                  
+                  <div class="col-sm-4 text-right">
+                    <p><small>Copyright &copy; 2014. All rights reserved. <br>
+                      Criado por mim<a href="http://johnnyvaz.com.br">Johnny Vaz</a></small></p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </footer>
+              
+              
+              <!-- Javascript
+                ================================================== -->
+                <!-- Placed at the end of the document so the pages load faster -->
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+                <script src="js/wow.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/main.js"></script>
+                
+                
+              </body>
+              </html>

@@ -1,0 +1,48 @@
+
+<title><%= title %></title>
+
+<section id="listarIdeias">
+  <fieldset>
+      <legend> Registros Cadastrados </legend>
+      <table class='table' border="1" id="registros">
+          <tr>
+              <th></th>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>Resumo</th>
+              <th>imagens</th>
+              <th>Descrição</th>
+              <th>Recursos</th>
+              <th>Ideia Relacionada</th>
+              <th>Tipo</th>
+              
+          </tr>
+
+          <% for(i=0; i<ideias.length; i++) { %>
+          <tr>
+              <td> <%= [i] %> </td>
+              <td> <%= ideias[i].id %> </td>
+              <td> <%= ideias[i].nome %> </td>
+              <td> <%= ideias[i].resumo %> </td>
+              <td> <%= ideias[i].imagens %> </td>
+              <td> <%= ideias[i].descricao %> </td>
+              <td> <%= ideias[i].idRecursos %> </td>
+              <td> <%= ideias[i].idIdeia_Relacionada %> </td>
+              <td> <%= ideias[i].tipo %> </td>
+              <td><a class="btn btn-primary btn-block"
+                      href=<%="/ideias/editar/" + ideias[i].id%>>Editar</a></td>
+              <td><a class="btn btn-primary btn-block"
+                        href=<%="/ideias/excluir/" + ideias[i].id%>>Excluir</a></td>
+          </tr>
+          <% } %>
+      </table>
+  </fieldset>
+</section>              
+
+<a class="btn btn-success btn-block" href="/ideias/novo">Novo</a>
+              
+        	</div>
+        </div>
+        
+      </body>
+        </html>

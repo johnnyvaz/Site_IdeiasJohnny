@@ -1,0 +1,28 @@
+{
+  "name": "cadastroideias",
+  "version": "1.0.0",
+  "description": "Cadastro de ideias do johnny",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon",
+    "production": "pm2 start app.js --name IdeiasJohnny"
+  },
+  "author": "Johnny Vaz",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "consign": "^0.1.6",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "mysql": "^2.17.1",
+    "mysql-migrations2": "^1.0.8",
+    "dotenv": "^8.0.0",
+    "nodemailer": "^6.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "nodemon": "^1.18.11",
+    "pm2": "^3.4.1"
+  }
+}
